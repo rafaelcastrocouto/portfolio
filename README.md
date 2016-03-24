@@ -1,2 +1,4 @@
 # portfolio
-Making an static online portfolio
+http://rafaelcastrocouto.github.io/portfolio/
+A static online portfolio hosted by Github
+
