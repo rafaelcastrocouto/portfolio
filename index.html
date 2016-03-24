@@ -311,6 +311,29 @@ a {
 ::-webkit-scrollbar-button {
   height: 2px;
 }
+
+
+/*mobile*/
+.main_container.mobile {
+  background: none;
+  height: 100%;
+}
+.main_container.mobile .view {
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+@media (max-width: 290px) {
+  .main_container {
+    background: none;
+    height: 100%;
+  }
+  .main_container .view {
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+}
   </style>
 </head>
 <body>
@@ -323,7 +346,7 @@ a {
       <span class='carrer'></span>
       <span class='carrer'></span>
       <span class='carrer'></span>
-      <span class='career_name'>Codepen</span>
+      <span class='career_name'>Github</span>
       <span id='time'>16:20</span>
       <span id='battery'>42%</span>
     </div>
@@ -373,10 +396,13 @@ a {
 </div>
 
 <script>
+if ('ontouchstart' in window) $('.main_container').addClass('mobile');
 var li = $('.chat li');
 li.hide();
 var time = function () {
-  return new Date().toLocaleTimeString().substring(0,5);
+  var t = new Date().toLocaleTimeString().substring(0,5);
+  if (t[4] === ':') t = '0' + t.substring(0,4);
+  return t;
 };
 $('#time').text(time());
 var showNext = function () {
