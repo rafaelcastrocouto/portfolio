@@ -396,7 +396,13 @@ a {
 </div>
 
 <script>
-if ('ontouchstart' in window) $('.main_container').addClass('mobile');
+var r = function(){
+  if ('ontouchstart' in window && window.innerWidth < 500)
+ $('.main_container').addClass('mobile');
+  else $('.main_container').removeClass('mobile');
+};
+$(window).resize(r);
+r();
 var li = $('.chat li');
 li.hide();
 var time = function () {
